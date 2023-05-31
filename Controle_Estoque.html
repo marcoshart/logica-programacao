@@ -1,0 +1,45 @@
+<script>
+estoque = 0;
+numero = 0;
+quant = 0;
+estoqueatual = 0;
+
+estoque = parseInt(prompt("Informar Saldo estoque."));
+
+document.write("Saldo Estoque INICIO: " + estoque + "<br>");
+
+numero = parseInt(prompt("Informar:\n1 - para COMPRA\n2 - para VENDA\n0 - Para ENCERRAR"));
+
+while (estoque >=0 && numero >=1)
+{
+while (numero == 1){
+quant = parseInt(prompt("Informar quantidade \nCOMPRA:"));
+
+document.write("Compra: " + quant + "<br>");
+
+estoque = estoque + quant;
+prompt("SALDO ESTOQUE: " + estoque + "   \nDigite OK para continuar");
+numero = parseInt(prompt("Informar:\n1 - para COMPRA\n2 - para VENDA\n0 - Para ENCERRAR"));
+}
+
+while (numero == 2){
+estoqueatual = estoque;
+quant = parseInt(prompt("Informar quantidade \nVENDA:"));
+estoque = estoque - quant;
+
+if(estoque < 0){
+estoque = estoqueatual;
+document.write("Anulada ");
+prompt("SALDO INSUFICIENTE \nDigite OK para continuar");
+}
+
+document.write("Venda: " + quant + "<br>");
+
+prompt("SALDO ESTOQUE: " + estoque + "   \nDigite OK para continuar");
+numero = parseInt(prompt("Informar:\n1 - para COMPRA\n2 - para VENDA\n0 - Para ENCERRAR"));
+}
+}
+
+document.write("Saldo Estoque FIM: " + estoque + "<br>");
+document.write("SISTEMA ENCERRADO!!!");
+</script>
